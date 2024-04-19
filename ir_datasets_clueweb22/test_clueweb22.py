@@ -577,48 +577,48 @@ def test_clueweb22_b_docs(subtests: SubTests) -> None:
     )
 
 
-# @skip_if_dir_not_found
-# def test_clueweb22_slice() -> None:
-#     register()
+@skip_if_dir_not_found
+def test_clueweb22_slice() -> None:
+    register()
 
-#     for subset_view in [None, "a", "l"]:
-#         dataset_id = "clueweb22/b"
-#         if subset_view:
-#             dataset_id += f"/as-{subset_view}"
-#         dataset = load(dataset_id)
+    for subset_view in [None, "a", "l"]:
+        dataset_id = "clueweb22/b"
+        if subset_view:
+            dataset_id += f"/as-{subset_view}"
+        dataset = load(dataset_id)
 
-#         _test_docs_slice(
-#             dataset, slice(None, 100), 100, "start of file"
-#         )
-#         _test_docs_slice(
-#             dataset, slice(None, 100, 2), 50, "start of file with step"
-#         )
-#         _test_docs_slice(
-#             dataset, slice(5000, 5100), 100, "middle of file",
-#         )
-#         _test_docs_slice(
-#             dataset, slice(23200, 23241), 41, "end of file",
-#         )
-#         _test_docs_slice(
-#             dataset, slice(23241, 23300), 59, "start of new file",
-#         )
-#         _test_docs_slice(
-#             dataset, slice(23200, 23300), 100, "across file boundary",
-#         )
-#         _test_docs_slice(
-#             dataset, slice(2278243, 2278343), 100, "later file",
-#             skip_islice=True,
-#         )
-#         _test_docs_slice(
-#             dataset, slice(
-#                 100_000_000, 100_000_100), 100, "middle of dataset",
-#             skip_islice=True,
-#         )
-#         _test_docs_slice(
-#             dataset, slice(
-#                 180_000_000, 180_000_100), 100, "near end of dataset",
-#             skip_islice=True,
-#         )
+        _test_docs_slice(
+            dataset, slice(None, 100), 100, "start of file"
+        )
+        _test_docs_slice(
+            dataset, slice(None, 100, 2), 50, "start of file with step"
+        )
+        _test_docs_slice(
+            dataset, slice(5000, 5100), 100, "middle of file",
+        )
+        _test_docs_slice(
+            dataset, slice(23200, 23241), 41, "end of file",
+        )
+        _test_docs_slice(
+            dataset, slice(23241, 23300), 59, "start of new file",
+        )
+        _test_docs_slice(
+            dataset, slice(23200, 23300), 100, "across file boundary",
+        )
+        _test_docs_slice(
+            dataset, slice(2278243, 2278343), 100, "later file",
+            skip_islice=True,
+        )
+        _test_docs_slice(
+            dataset, slice(
+                100_000_000, 100_000_100), 100, "middle of dataset",
+            skip_islice=True,
+        )
+        _test_docs_slice(
+            dataset, slice(
+                180_000_000, 180_000_100), 100, "near end of dataset",
+            skip_islice=True,
+        )
 
 
 @skip_if_dir_not_found
