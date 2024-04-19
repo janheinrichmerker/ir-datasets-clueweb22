@@ -33,7 +33,7 @@ register()
 dataset = load("clueweb22/b")
 ```
 
-If you want to use the [CLI], just use the `ir_datasets_clueweb22` instead of `ir_datasets`. All CLI commands will work as usual, e.g., to list the available datasets:
+If you want to use the [CLI](https://ir-datasets.com/cli.html), just use the `ir_datasets_clueweb22` instead of `ir_datasets`. All CLI commands will work as usual, e.g., to list the available datasets:
 
 ```shell
 ir_datasets_clueweb22 list
