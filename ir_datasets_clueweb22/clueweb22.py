@@ -1537,6 +1537,10 @@ class ClueWeb22Docstore(Docstore):
 
 
 def register() -> None:
+    if "clueweb22" in registry:
+        # Already registered.
+        return
+
     documentation = YamlDocumentation("clueweb22.yaml")
     base_path = home_path() / "clueweb22"
     download = DownloadConfig.context("clueweb22", base_path)
