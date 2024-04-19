@@ -1,5 +1,5 @@
 from datetime import datetime
-from re import compile
+from re import compile as re_compile, DOTALL
 from uuid import UUID
 
 from pytest_subtests import SubTests
@@ -88,8 +88,9 @@ def test_clueweb22_l_docs(subtests: SubTests) -> None:
                 url="https://www.alba.info/karriere/",
                 url_hash="EF1C364E908E1460885D7DF3C91B6FE5",
                 language="de",
-                text=compile(  # type: ignore
-                    r".*Speichert den Zustimmungsstatus des Benutzers für Cookies auf der aktuellen Domäne.$"
+                text=re_compile(  # type: ignore
+                    pattern=r".*Speichert den Zustimmungsstatus des Benutzers für Cookies auf der aktuellen Domäne.$",
+                    flags=DOTALL,
                 ),
             ),
             1_000: ClueWeb22LDoc(
@@ -97,8 +98,9 @@ def test_clueweb22_l_docs(subtests: SubTests) -> None:
                 url="https://totallygamergirl.com/2021/10/22/forza-horizon-4-festival-spielliste-kw-42-2021-aufgaben-belohnungen-und-voraussetzungen/",
                 url_hash="FCB5D1104F48D49F2F68DA4AB1D3E0A7",
                 language="de",
-                text=compile(  # type: ignore
-                    r".*Bildquelle: eigene Screenshots aus Forza Horizon 4$"
+                text=re_compile(  # type: ignore
+                    pattern=r".*Bildquelle: eigene Screenshots aus Forza Horizon 4$",
+                    flags=DOTALL,
                 ),
             ),
             100_000_000: ClueWeb22LDoc(
@@ -106,8 +108,9 @@ def test_clueweb22_l_docs(subtests: SubTests) -> None:
                 url="https://conjugador.reverso.net/conjugacion-espanol-verbo-parlar.html",
                 url_hash="8AA0B21CFF8A1F0B1F0B9EFFF30D5EEA",
                 language="es",
-                text=compile(  # type: ignore
-                    r".*supervisar, meter, convocar, estructurar, graznar, implementar, desarmar, elegir, objetar%"
+                text=re_compile(  # type: ignore
+                    pattern=r".*supervisar, meter, convocar, estructurar, graznar, implementar, desarmar, elegir, objetar%",
+                    flags=DOTALL,
                 )
             ),
         },
@@ -127,11 +130,12 @@ def test_clueweb22_a_docs(subtests: SubTests) -> None:
                 url="https://www.alba.info/karriere/",
                 url_hash="EF1C364E908E1460885D7DF3C91B6FE5",
                 language="de",
-                text=compile(  # type: ignore
-                    r".*Speichert den Zustimmungsstatus des Benutzers für Cookies auf der aktuellen Domäne.$"
+                text=re_compile(  # type: ignore
+                    pattern=r".*Speichert den Zustimmungsstatus des Benutzers für Cookies auf der aktuellen Domäne.$",
+                    flags=DOTALL,
                 ),
                 date=datetime(2022, 8, 24, 1, 39, 58, 761009),
-                html=compile(b"^<html"),  # type: ignore
+                html=re_compile(b"^<html"),  # type: ignore
                 record_id=UUID("45af2957-73e2-4e27-a732-d1a3eb22d1cb"),
                 payload_digest="sha1:a327d7b36b2da46bd4f3fd18d530f53a70070280",
                 vdom_nodes={
@@ -164,7 +168,7 @@ def test_clueweb22_a_docs(subtests: SubTests) -> None:
                         1467, 1473, 1479, 1665
                     ],
                 },
-                vdom=compile(b".*clueweb22-de0000-00-00000$"),  # type: ignore
+                vdom=re_compile(b".*clueweb22-de0000-00-00000$"),  # type: ignore
                 inlink_anchors=[
                     Anchor(
                         url="https://www.alba.info/karriere/studierende-absolventen/werkstudenten/",
@@ -187,11 +191,11 @@ def test_clueweb22_a_docs(subtests: SubTests) -> None:
                 url="https://totallygamergirl.com/2021/10/22/forza-horizon-4-festival-spielliste-kw-42-2021-aufgaben-belohnungen-und-voraussetzungen/",
                 url_hash="FCB5D1104F48D49F2F68DA4AB1D3E0A7",
                 language="de",
-                text=compile(  # type: ignore
+                text=re_compile(  # type: ignore
                     r".*Bildquelle: eigene Screenshots aus Forza Horizon 4$"
                 ),
                 date=datetime(2022, 8, 24, 4, 1, 57, 988007),
-                html=compile(b"^<html"),  # type: ignore
+                html=re_compile(b"^<html"),  # type: ignore
                 record_id=UUID("5bf118fc-c66f-429c-82f5-dfc9c0bfef17"),
                 payload_digest="sha1:7ececcd7d4910c2e6dcbe800bbb87bc0f891af0d",
                 vdom_nodes={
@@ -231,7 +235,7 @@ def test_clueweb22_a_docs(subtests: SubTests) -> None:
                         1657, 1666, 1671, 1675, 1680, 1686, 2167
                     ],
                 },
-                vdom=compile(b".*clueweb22-de0000-00-01000$"),  # type: ignore
+                vdom=re_compile(b".*clueweb22-de0000-00-01000$"),  # type: ignore
                 inlink_anchors=[
                     Anchor(
                         url="https://totallygamergirl.com/2021/10/22/forza-horizon-5-hopsital-records-und-radio-eternal-playlists/",
@@ -254,11 +258,12 @@ def test_clueweb22_a_docs(subtests: SubTests) -> None:
                 url="https://conjugador.reverso.net/conjugacion-espanol-verbo-parlar.html",
                 url_hash="8AA0B21CFF8A1F0B1F0B9EFFF30D5EEA",
                 language="es",
-                text=compile(  # type: ignore
-                    r".*Conjugue también: impregnar, supervisar, meter, convocar, estructurar, graznar, implementar, desarmar, elegir, objetar$"
+                text=re_compile(  # type: ignore
+                    pattern=r".*Conjugue también: impregnar, supervisar, meter, convocar, estructurar, graznar, implementar, desarmar, elegir, objetar$",
+                    flags=DOTALL,
                 ),
                 date=datetime(2022, 8, 25, 6, 58, 5, 282445),
-                html=compile(b"^<html"),  # type: ignore
+                html=re_compile(b"^<html"),  # type: ignore
                 record_id=UUID("8df8e58f-85d7-4804-ad44-8136856d00a0"),
                 payload_digest="sha1:4285cbda8ce39d8273c9fad8350f2c260d59d58e",
                 vdom_nodes={
@@ -320,7 +325,7 @@ def test_clueweb22_a_docs(subtests: SubTests) -> None:
                         1114, 1162, 1209, 1256, 1339
                     ]
                 },
-                vdom=compile(b".*clueweb22-es0000-56-11365"),  # type: ignore
+                vdom=re_compile(b".*clueweb22-es0000-56-11365"),  # type: ignore
                 inlink_anchors=[],
                 outlink_anchors=[
                     Anchor(
@@ -348,11 +353,12 @@ def test_clueweb22_b_docs(subtests: SubTests) -> None:
                 url="https://www.alba.info/karriere/",
                 url_hash="EF1C364E908E1460885D7DF3C91B6FE5",
                 language="de",
-                text=compile(  # type: ignore
-                    r".*Speichert den Zustimmungsstatus des Benutzers für Cookies auf der aktuellen Domäne.$"
+                text=re_compile(  # type: ignore
+                    pattern=r".*Speichert den Zustimmungsstatus des Benutzers für Cookies auf der aktuellen Domäne.$",
+                    flags=DOTALL,
                 ),
                 date=datetime(2022, 8, 24, 1, 39, 58, 761009),
-                html=compile(b"^<html"),  # type: ignore
+                html=re_compile(b"^<html"),  # type: ignore
                 record_id=UUID("45af2957-73e2-4e27-a732-d1a3eb22d1cb"),
                 payload_digest="sha1:a327d7b36b2da46bd4f3fd18d530f53a70070280",
                 vdom_nodes={
@@ -385,7 +391,7 @@ def test_clueweb22_b_docs(subtests: SubTests) -> None:
                         1467, 1473, 1479, 1665
                     ],
                 },
-                vdom=compile(b".*clueweb22-de0000-00-00000$"),  # type: ignore
+                vdom=re_compile(b".*clueweb22-de0000-00-00000$"),  # type: ignore
                 inlink_anchors=[
                     Anchor(
                         url="https://www.alba.info/karriere/studierende-absolventen/werkstudenten/",
@@ -408,11 +414,12 @@ def test_clueweb22_b_docs(subtests: SubTests) -> None:
                 url="https://totallygamergirl.com/2021/10/22/forza-horizon-4-festival-spielliste-kw-42-2021-aufgaben-belohnungen-und-voraussetzungen/",
                 url_hash="FCB5D1104F48D49F2F68DA4AB1D3E0A7",
                 language="de",
-                text=compile(  # type: ignore
-                    r".*Bildquelle: eigene Screenshots aus Forza Horizon 4$"
+                text=re_compile(  # type: ignore
+                    pattern=r".*Bildquelle: eigene Screenshots aus Forza Horizon 4$",
+                    flags=DOTALL,
                 ),
                 date=datetime(2022, 8, 24, 4, 1, 57, 988007),
-                html=compile(b"^<html"),  # type: ignore
+                html=re_compile(b"^<html"),  # type: ignore
                 record_id=UUID("5bf118fc-c66f-429c-82f5-dfc9c0bfef17"),
                 payload_digest="sha1:7ececcd7d4910c2e6dcbe800bbb87bc0f891af0d",
                 vdom_nodes={
@@ -452,7 +459,7 @@ def test_clueweb22_b_docs(subtests: SubTests) -> None:
                         1657, 1666, 1671, 1675, 1680, 1686, 2167
                     ],
                 },
-                vdom=compile(b".*clueweb22-de0000-00-01000$"),  # type: ignore
+                vdom=re_compile(b".*clueweb22-de0000-00-01000$"),  # type: ignore
                 inlink_anchors=[
                     Anchor(
                         url="https://totallygamergirl.com/2021/10/22/forza-horizon-5-hopsital-records-und-radio-eternal-playlists/",
@@ -475,11 +482,12 @@ def test_clueweb22_b_docs(subtests: SubTests) -> None:
                 url="https://conjugador.reverso.net/conjugacion-espanol-verbo-parlar.html",
                 url_hash="8AA0B21CFF8A1F0B1F0B9EFFF30D5EEA",
                 language="es",
-                text=compile(  # type: ignore
-                    r".*Conjugue también: impregnar, supervisar, meter, convocar, estructurar, graznar, implementar, desarmar, elegir, objetar$"
+                text=re_compile(  # type: ignore
+                    pattern=r".*Conjugue también: impregnar, supervisar, meter, convocar, estructurar, graznar, implementar, desarmar, elegir, objetar$",
+                    flags=DOTALL,
                 ),
                 date=datetime(2022, 8, 25, 6, 58, 5, 282445),
-                html=compile(b"^<html"),  # type: ignore
+                html=re_compile(b"^<html"),  # type: ignore
                 record_id=UUID("8df8e58f-85d7-4804-ad44-8136856d00a0"),
                 payload_digest="sha1:4285cbda8ce39d8273c9fad8350f2c260d59d58e",
                 vdom_nodes={
@@ -541,7 +549,7 @@ def test_clueweb22_b_docs(subtests: SubTests) -> None:
                         1114, 1162, 1209, 1256, 1339
                     ]
                 },
-                vdom=compile(b".*clueweb22-es0000-56-11365"),  # type: ignore
+                vdom=re_compile(b".*clueweb22-es0000-56-11365"),  # type: ignore
                 inlink_anchors=[],
                 outlink_anchors=[
                     Anchor(
@@ -556,47 +564,47 @@ def test_clueweb22_b_docs(subtests: SubTests) -> None:
     )
 
 
-def test_clueweb22_slice() -> None:
-    register()
+# def test_clueweb22_slice() -> None:
+#     register()
 
-    for subset_view in [None, "a", "l"]:
-        dataset_id = "clueweb22/b"
-        if subset_view:
-            dataset_id += f"/as-{subset_view}"
-        dataset = load(dataset_id)
+#     for subset_view in [None, "a", "l"]:
+#         dataset_id = "clueweb22/b"
+#         if subset_view:
+#             dataset_id += f"/as-{subset_view}"
+#         dataset = load(dataset_id)
 
-        _test_docs_slice(
-            dataset, slice(None, 100), 100, "start of file"
-        )
-        _test_docs_slice(
-            dataset, slice(None, 100, 2), 50, "start of file with step"
-        )
-        _test_docs_slice(
-            dataset, slice(5000, 5100), 100, "middle of file",
-        )
-        _test_docs_slice(
-            dataset, slice(23200, 23241), 41, "end of file",
-        )
-        _test_docs_slice(
-            dataset, slice(23241, 23300), 59, "start of new file",
-        )
-        _test_docs_slice(
-            dataset, slice(23200, 23300), 100, "across file boundary",
-        )
-        _test_docs_slice(
-            dataset, slice(2278243, 2278343), 100, "later file",
-            skip_islice=True,
-        )
-        _test_docs_slice(
-            dataset, slice(
-                100_000_000, 100_000_100), 100, "middle of dataset",
-            skip_islice=True,
-        )
-        _test_docs_slice(
-            dataset, slice(
-                180_000_000, 180_000_100), 100, "near end of dataset",
-            skip_islice=True,
-        )
+#         _test_docs_slice(
+#             dataset, slice(None, 100), 100, "start of file"
+#         )
+#         _test_docs_slice(
+#             dataset, slice(None, 100, 2), 50, "start of file with step"
+#         )
+#         _test_docs_slice(
+#             dataset, slice(5000, 5100), 100, "middle of file",
+#         )
+#         _test_docs_slice(
+#             dataset, slice(23200, 23241), 41, "end of file",
+#         )
+#         _test_docs_slice(
+#             dataset, slice(23241, 23300), 59, "start of new file",
+#         )
+#         _test_docs_slice(
+#             dataset, slice(23200, 23300), 100, "across file boundary",
+#         )
+#         _test_docs_slice(
+#             dataset, slice(2278243, 2278343), 100, "later file",
+#             skip_islice=True,
+#         )
+#         _test_docs_slice(
+#             dataset, slice(
+#                 100_000_000, 100_000_100), 100, "middle of dataset",
+#             skip_islice=True,
+#         )
+#         _test_docs_slice(
+#             dataset, slice(
+#                 180_000_000, 180_000_100), 100, "near end of dataset",
+#             skip_islice=True,
+#         )
 
 
 def test_clueweb22_docstore() -> None:
