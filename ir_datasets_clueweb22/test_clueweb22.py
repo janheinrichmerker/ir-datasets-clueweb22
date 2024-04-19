@@ -2,9 +2,12 @@ from datetime import datetime
 from re import compile as re_compile, DOTALL
 from uuid import UUID
 
+from pytest import mark
 from pytest_subtests import SubTests
 
 from ir_datasets import log, load, Dataset
+from ir_datasets.util import home_path
+
 from ir_datasets_clueweb22 import register
 from ir_datasets_clueweb22.clueweb22 import ClueWeb22LDoc, ClueWeb22ADoc, AnnotationType, Anchor, ClueWeb22BDoc
 from ir_datasets_clueweb22.conftest import _test_docs, _test_docs_slice
@@ -12,6 +15,13 @@ from ir_datasets_clueweb22.conftest import _test_docs, _test_docs_slice
 _logger = log.easy()
 
 
+skip_if_dir_not_found = mark.skipif(
+    not (home_path() / "clueweb22").exists(),
+    reason="ClueWeb22 directory not available."
+)
+
+
+@skip_if_dir_not_found
 def test_clueweb22_meta() -> None:
     register()
 
@@ -75,6 +85,7 @@ def test_clueweb22_meta() -> None:
                 assert subset_view_lang_dataset.docs_lang() == lang
 
 
+@skip_if_dir_not_found
 def test_clueweb22_l_docs(subtests: SubTests) -> None:
     register()
 
@@ -117,6 +128,7 @@ def test_clueweb22_l_docs(subtests: SubTests) -> None:
     )
 
 
+@skip_if_dir_not_found
 def test_clueweb22_a_docs(subtests: SubTests) -> None:
     register()
 
@@ -340,6 +352,7 @@ def test_clueweb22_a_docs(subtests: SubTests) -> None:
     )
 
 
+@skip_if_dir_not_found
 def test_clueweb22_b_docs(subtests: SubTests) -> None:
     register()
 
@@ -564,6 +577,7 @@ def test_clueweb22_b_docs(subtests: SubTests) -> None:
     )
 
 
+# @skip_if_dir_not_found
 # def test_clueweb22_slice() -> None:
 #     register()
 
@@ -607,6 +621,7 @@ def test_clueweb22_b_docs(subtests: SubTests) -> None:
 #         )
 
 
+@skip_if_dir_not_found
 def test_clueweb22_docstore() -> None:
     register()
 
@@ -649,6 +664,7 @@ def test_clueweb22_docstore() -> None:
             docstore.get_many(ids_earlier)
 
 
+@skip_if_dir_not_found
 def test_clueweb22_offset_file_workaround() -> None:
     register()
 
