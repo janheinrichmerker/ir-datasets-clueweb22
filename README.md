@@ -1,11 +1,11 @@
 [![PyPi](https://img.shields.io/pypi/v/ir-datasets-clueweb22?style=flat-square)](https://pypi.org/project/ir-datasets-clueweb22/)
-[![CI](https://img.shields.io/github/actions/workflow/status/heinrichreimer/ir-datasets-clueweb22/ci.yml?branch=main&style=flat-square)](https://github.com/heinrichreimer/ir-datasets-clueweb22/actions/workflows/ci.yml)
-[![Code coverage](https://img.shields.io/codecov/c/github/heinrichreimer/ir-datasets-clueweb22?style=flat-square)](https://codecov.io/github/heinrichreimer/ir-datasets-clueweb22/)
+[![CI](https://img.shields.io/github/actions/workflow/status/janheinrichmerker/ir-datasets-clueweb22/ci.yml?branch=main&style=flat-square)](https://github.com/janheinrichmerker/ir-datasets-clueweb22/actions/workflows/ci.yml)
+[![Code coverage](https://img.shields.io/codecov/c/github/janheinrichmerker/ir-datasets-clueweb22?style=flat-square)](https://codecov.io/github/janheinrichmerker/ir-datasets-clueweb22/)
 [![Python](https://img.shields.io/pypi/pyversions/ir-datasets-clueweb22?style=flat-square)](https://pypi.org/project/ir-datasets-clueweb22/)
-[![Issues](https://img.shields.io/github/issues/heinrichreimer/ir-datasets-clueweb22?style=flat-square)](https://github.com/heinrichreimer/ir-datasets-clueweb22/issues)
-[![Commit activity](https://img.shields.io/github/commit-activity/m/heinrichreimer/ir-datasets-clueweb22?style=flat-square)](https://github.com/heinrichreimer/ir-datasets-clueweb22/commits)
+[![Issues](https://img.shields.io/github/issues/janheinrichmerker/ir-datasets-clueweb22?style=flat-square)](https://github.com/janheinrichmerker/ir-datasets-clueweb22/issues)
+[![Commit activity](https://img.shields.io/github/commit-activity/m/janheinrichmerker/ir-datasets-clueweb22?style=flat-square)](https://github.com/janheinrichmerker/ir-datasets-clueweb22/commits)
 [![Downloads](https://img.shields.io/pypi/dm/ir-datasets-clueweb22?style=flat-square)](https://pypi.org/project/ir-datasets-clueweb22/)
-[![License](https://img.shields.io/github/license/heinrichreimer/ir-datasets-clueweb22?style=flat-square)](LICENSE)
+[![License](https://img.shields.io/github/license/janheinrichmerker/ir-datasets-clueweb22?style=flat-square)](LICENSE)
 
 # 💾 ir-datasets-clueweb22
 
@@ -85,7 +85,7 @@ python -m build
 
 ## Support
 
-If you have any problems using this package, please file an [issue](https://github.com/heinrichreimer/ir-datasets-clueweb22/issues/new).
+If you have any problems using this package, please file an [issue](https://github.com/janheinrichmerker/ir-datasets-clueweb22/issues/new).
 We're happy to help!
 
 ## License

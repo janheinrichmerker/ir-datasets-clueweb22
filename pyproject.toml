@@ -37,8 +37,8 @@ tests =[
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/heinrichreimer/ir-datasets-clueweb22"
-"Bug Tracker" = "https://github.com/heinrichreimer/ir-datasets-clueweb22/issues"
+"Homepage" = "https://github.com/janheinrichmerker/ir-datasets-clueweb22"
+"Bug Tracker" = "https://github.com/janheinrichmerker/ir-datasets-clueweb22/issues"
 
 [project.scripts]
 ir_datasets_clueweb22 = "ir_datasets_clueweb22:main_cli"
