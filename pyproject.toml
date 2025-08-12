@@ -48,7 +48,7 @@ irds-clueweb22 = "ir_datasets_clueweb22:main_cli"
 [build-system]
 requires = [
     "setuptools>=69,<81",
-    "setuptools-scm~=8.0",    
+    "setuptools-scm>=8,<10",    
 ]
 build-backend = "setuptools.build_meta"
 
